@@ -1,0 +1,13 @@
+import { useMemo, createContext } from 'react';
+
+import { PropsWithRequiredChildren } from '@common/types';
+
+export type {{pascalCase name}}ContextData = {};
+
+export const {{pascalCase name}}Context = createContext<{{pascalCase name}}ContextData | null>(null);
+
+export const {{pascalCase name}}Provider = ({ children }: PropsWithRequiredChildren) => {
+  const value = useMemo<{{pascalCase name}}ContextData>(() => ({}), []);
+
+  return <{{pascalCase name}}Context.Provider value={value}>{children}</{{pascalCase name}}Context.Provider>;
+};

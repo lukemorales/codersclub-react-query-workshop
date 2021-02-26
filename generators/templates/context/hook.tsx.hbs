@@ -1,0 +1,13 @@
+import { useContext } from 'react';
+
+import { {{pascalCase name}}Context } from '@contexts/{{kebabCase name}}';
+
+export const use{{pascalCase name}} = () => {
+  const context = useContext({{pascalCase name}}Context);
+
+  if (!context) {
+    throw new Error(`use{{pascalCase name}} must be used within a {{pascalCase name}}Provider`);
+  }
+
+  return context;
+};

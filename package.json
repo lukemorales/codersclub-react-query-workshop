@@ -1,0 +1,95 @@
+{
+  "name": "eventify",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "axios": "^0.21.1",
+    "craco-alias": "^2.1.1",
+    "date-fns": "^2.17.0",
+    "history": "4.10.1",
+    "immer": "^8.0.1",
+    "polished": "^4.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-query": "^3.9.8",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.2",
+    "react-spinners": "^0.10.6",
+    "styled-components": "^5.2.1",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "jest --passWithNoTests",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "generate": "plop --plopfile generators/plopfile.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run test -- --findRelatedTests"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts?(x)": "eslint --max-warnings=0 --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@lukemorales"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@lukemorales/eslint-config": "^1.0.7",
+    "@rocketseat/commitlint-config": "^0.0.3",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.7",
+    "@types/yup": "^0.29.11",
+    "@typescript-eslint/eslint-plugin": "4.15.1",
+    "@typescript-eslint/parser": "4.15.1",
+    "eslint": "7.20.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-import-resolver-typescript": "2.4.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import-helpers": "1.1.0",
+    "eslint-plugin-jest": "24.1.5",
+    "eslint-plugin-jest-dom": "3.6.5",
+    "eslint-plugin-jest-formatting": "2.0.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "eslint-plugin-radar": "0.2.1",
+    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-react-redux": "3.3.2",
+    "eslint-plugin-testing-library": "3.10.1",
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4",
+    "plop": "^2.7.4",
+    "prettier": "2.2.1",
+    "typescript": "^4.1.5"
+  }
+}

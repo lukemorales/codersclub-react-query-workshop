@@ -1,0 +1,38 @@
+import styled, { css } from 'styled-components';
+
+export const Container = styled.nav`
+  grid-area: menu;
+  width: 100%;
+  max-width: 238px;
+  padding: 40px 0 40px 40px;
+`;
+
+export const SectionWrapper = styled.div`
+  ${() => css`
+    strong {
+      display: block;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    & + & {
+      margin-top: 40px;
+    }
+  `}
+`;
+
+export const MenuItem = styled.button<{ isActive: boolean }>`
+  ${({ theme, isActive }) => css`
+    width: 100%;
+    justify-content: flex-start;
+    background: none;
+    padding: 4px 0;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: ${isActive ? theme.colors.accent.primary : theme.colors.text.bold};
+    border-right: 4px solid
+      ${isActive ? theme.colors.accent.primary : theme.colors.background};
+  `}
+`;
