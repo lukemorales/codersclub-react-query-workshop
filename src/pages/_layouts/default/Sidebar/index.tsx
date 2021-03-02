@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 
+import { useHistory } from 'react-router';
+
 import { api } from '@services';
 import { TopAiringAnime, TopAiringResponse } from '@common/types/api';
 
@@ -12,7 +14,12 @@ const INITIAL_STATE = {
 };
 
 const Sidebar = () => {
+  const history = useHistory();
+
   const [data, setData] = useState(INITIAL_STATE);
+
+  const navigateToCategories = (category: string) => () =>
+    history.push(`/categories/${category}`);
 
   const updateState = useCallback(
     (newState: Partial<typeof INITIAL_STATE>) =>
@@ -52,7 +59,12 @@ const Sidebar = () => {
           <SidebarItem key={anime.mal_id} anime={anime} />
         ))}
 
-        <S.SeeMoreButton>See More</S.SeeMoreButton>
+        <S.SeeMoreButton
+          type="button"
+          onClick={navigateToCategories('top/movie')}
+        >
+          See More
+        </S.SeeMoreButton>
       </S.PopularAnimes>
       <S.PopularAnimes>
         <h3>Favorite Animes</h3>
@@ -61,7 +73,12 @@ const Sidebar = () => {
           <SidebarItem key={anime.mal_id} anime={anime} />
         ))}
 
-        <S.SeeMoreButton>See More</S.SeeMoreButton>
+        <S.SeeMoreButton
+          type="button"
+          onClick={navigateToCategories('top/favorite')}
+        >
+          See More
+        </S.SeeMoreButton>
       </S.PopularAnimes>
     </S.Container>
   );
