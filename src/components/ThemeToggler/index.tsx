@@ -1,4 +1,4 @@
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { HiMoon, HiSun } from 'react-icons/hi';
 
 import { useAppTheme } from '@hooks';
 
@@ -7,7 +7,7 @@ const ThemeToggler = () => {
 
   return (
     <button type="button" onClick={toggleTheme}>
-      {currentTheme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
+      {currentTheme === 'light' ? <HiMoon size={20} /> : <HiSun size={20} />}
     </button>
   );
 };

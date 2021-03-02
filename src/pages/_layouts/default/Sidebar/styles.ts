@@ -1,25 +1,29 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.nav`
-  grid-area: sidebar;
-  width: 100%;
-  max-width: 400px;
-  padding: 40px;
+export const Container = styled.section`
+  ${() => css`
+    grid-area: sidebar;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+  `}
 `;
 
-export const SectionWrapper = styled.div`
+export const PopularAnimes = styled.article`
   ${() => css`
-    & + & {
-      margin-top: 28px;
+    > h3 {
+      margin: 24px 0 16px;
     }
   `}
 `;
 
-export const MenuItem = styled.li<{ isActive: boolean }>`
-  ${({ theme, isActive }) => css`
-    font-weight: bold;
-    color: ${theme.colors.text.bold};
-    border-right: 3px solid
-      ${isActive ? theme.colors.accent.primary : theme.colors.background};
+export const SeeMoreButton = styled.button`
+  ${({ theme }) => css`
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    color: ${theme.colors.accent.primary};
+    background: ${theme.colors.accent.soft};
+    border-radius: 8px;
   `}
 `;
