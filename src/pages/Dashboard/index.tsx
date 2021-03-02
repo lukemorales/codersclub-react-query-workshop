@@ -52,40 +52,44 @@ const Dashboard = () => {
         alt="Re:Zero"
       />
 
-      <h3>Season Highlights</h3>
-
       <S.SeasonHighlight>
-        {data.season.map((anime, index) => {
-          if (index === 5 || index > 7) {
-            return null;
-          }
+        <h3>Season Highlights</h3>
 
-          return (
-            <div key={anime.mal_id}>
-              <img src={anime.image_url} alt={anime.title} />
+        <ul>
+          {data.season.map((anime, index) => {
+            if (index === 5 || index > 7) {
+              return null;
+            }
 
-              <span>{anime.title}</span>
-            </div>
-          );
-        })}
+            return (
+              <li key={anime.mal_id}>
+                <img src={anime.image_url} alt={anime.title} />
+
+                <span>{anime.title}</span>
+              </li>
+            );
+          })}
+        </ul>
       </S.SeasonHighlight>
 
-      <h3>Top Airing</h3>
-
       <S.TopAiring>
-        {data.top.map((anime, index) => {
-          if (index > 5) {
-            return null;
-          }
+        <h3>Top Airing</h3>
 
-          return (
-            <div key={anime.mal_id}>
-              <img src={anime.image_url} alt={anime.title} />
+        <ul>
+          {data.top.map((anime, index) => {
+            if (index > 5) {
+              return null;
+            }
 
-              <span>{anime.title}</span>
-            </div>
-          );
-        })}
+            return (
+              <li key={anime.mal_id}>
+                <img src={anime.image_url} alt={anime.title} />
+
+                <span>{anime.title}</span>
+              </li>
+            );
+          })}
+        </ul>
       </S.TopAiring>
     </S.Container>
   );
