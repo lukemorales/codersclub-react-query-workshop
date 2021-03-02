@@ -9,6 +9,7 @@ import {
 } from '@common/types/api';
 
 import * as S from './styles';
+import ListItem from './ListItem';
 
 const INITIAL_STATE = {
   season: [] as SeasonAnime[],
@@ -36,8 +37,10 @@ const Dashboard = () => {
         ]);
 
         updateState({
-          season: seasonResponse.data.anime,
-          top: topAiringResponse.data.top,
+          season: seasonResponse.data.anime
+            .filter((anime) => !anime.title.includes('Heion Sedai no '))
+            .sort(() => Math.random() - 0.5),
+          top: topAiringResponse.data.top.sort(() => Math.random() - 0.5),
         });
       } catch (err) {
         console.warn(err);
@@ -56,19 +59,9 @@ const Dashboard = () => {
         <h3>Season Highlights</h3>
 
         <ul>
-          {data.season.map((anime, index) => {
-            if (index === 5 || index > 7) {
-              return null;
-            }
-
-            return (
-              <li key={anime.mal_id}>
-                <img src={anime.image_url} alt={anime.title} />
-
-                <span>{anime.title}</span>
-              </li>
-            );
-          })}
+          {data.season.slice(0, 7).map((anime) => (
+            <ListItem key={anime.mal_id} data={anime} />
+          ))}
         </ul>
       </S.SeasonHighlight>
 
@@ -76,19 +69,9 @@ const Dashboard = () => {
         <h3>Top Airing</h3>
 
         <ul>
-          {data.top.map((anime, index) => {
-            if (index > 5) {
-              return null;
-            }
-
-            return (
-              <li key={anime.mal_id}>
-                <img src={anime.image_url} alt={anime.title} />
-
-                <span>{anime.title}</span>
-              </li>
-            );
-          })}
+          {data.top.slice(0, 6).map((anime) => (
+            <ListItem key={anime.mal_id} data={anime} small />
+          ))}
         </ul>
       </S.TopAiring>
     </S.Container>
