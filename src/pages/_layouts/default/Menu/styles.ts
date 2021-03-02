@@ -1,24 +1,24 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.nav`
-  grid-area: menu;
-  width: 100%;
-  max-width: 238px;
-  padding: 40px 0 40px 40px;
+  ${() => css`
+    grid-area: menu;
+    width: 100%;
+    max-width: 238px;
+    padding: 40px 0 40px 40px;
+  `}
 `;
 
 export const SectionWrapper = styled.div`
   ${() => css`
+    margin-top: 40px;
+
     strong {
       display: block;
       text-transform: uppercase;
       font-size: 14px;
       margin-bottom: 12px;
       letter-spacing: 2px;
-    }
-
-    & + & {
-      margin-top: 40px;
     }
   `}
 `;
@@ -34,5 +34,9 @@ export const MenuItem = styled.button<{ isActive: boolean }>`
     color: ${isActive ? theme.colors.accent.primary : theme.colors.text.bold};
     border-right: 4px solid
       ${isActive ? theme.colors.accent.primary : theme.colors.background};
+
+    > svg {
+      margin-right: 12px;
+    }
   `}
 `;

@@ -1,73 +1,115 @@
-export const MENU_ENTRIES = [
+import {
+  HiHome,
+  HiShieldCheck,
+  HiUserGroup,
+  HiOutlineTicket,
+  HiUserCircle,
+  HiClock,
+  HiStar,
+  HiFolderDownload,
+  HiTicket,
+  HiVideoCamera,
+  HiCube,
+  HiLogout,
+  HiCog,
+} from 'react-icons/hi';
+import { IconType } from 'react-icons/lib';
+
+type MenuSections = 'Menu' | 'Library' | 'Category' | 'General';
+
+export type ItemTitles =
+  | 'Home'
+  | 'Community'
+  | 'Discover'
+  | 'Awards'
+  | 'Celebs'
+  | 'Recent'
+  | 'Top Rated'
+  | 'Downloaded'
+  | 'TV - Show'
+  | 'Movie'
+  | 'Anime'
+  | 'Settings'
+  | 'Log Out';
+
+type MenuEntries = Array<{
+  section: MenuSections;
+  items: Array<{
+    title: ItemTitles;
+    icon: IconType;
+  }>;
+}>;
+
+export const MENU_ENTRIES: MenuEntries = [
   {
-    section: 'Menu' as const,
+    section: 'Menu',
     items: [
       {
         title: 'Home',
-        icon: '',
+        icon: HiHome,
       },
       {
         title: 'Community',
-        icon: '',
+        icon: HiShieldCheck,
       },
       {
         title: 'Discover',
-        icon: '',
+        icon: HiUserGroup,
       },
       {
         title: 'Awards',
-        icon: '',
+        icon: HiOutlineTicket,
       },
       {
         title: 'Celebs',
-        icon: '',
+        icon: HiUserCircle,
       },
     ],
   },
   {
-    section: 'Library' as const,
+    section: 'Library',
     items: [
       {
         title: 'Recent',
-        icon: '',
+        icon: HiClock,
       },
       {
         title: 'Top Rated',
-        icon: '',
+        icon: HiStar,
       },
       {
         title: 'Downloaded',
-        icon: '',
+        icon: HiFolderDownload,
       },
     ],
   },
   {
-    section: 'Category' as const,
+    section: 'Category',
     items: [
       {
         title: 'TV - Show',
-        icon: '',
+        icon: HiTicket,
       },
       {
         title: 'Movie',
-        icon: '',
+        icon: HiVideoCamera,
       },
       {
         title: 'Anime',
-        icon: '',
+        icon: HiCube,
       },
     ],
   },
   {
-    section: 'General' as const,
+    section: 'General',
     items: [
       {
         title: 'Settings',
-        icon: '',
+        icon: HiCog,
       },
       {
         title: 'Log Out',
-        icon: '',
+        icon: HiLogout,
       },
     ],
   },

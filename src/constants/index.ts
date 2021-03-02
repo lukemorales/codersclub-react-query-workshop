@@ -1,4 +1,4 @@
-export * from './menu';
+export { MENU_ENTRIES } from './menu';
 
 export const STORAGE_KEY = '@coders-club-workshop';
 
