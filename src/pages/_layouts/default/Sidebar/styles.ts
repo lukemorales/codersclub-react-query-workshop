@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const StickyWrapper = styled.section`
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   padding: 40px;
   position: sticky;
   top: 10px;

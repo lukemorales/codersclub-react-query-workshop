@@ -9,35 +9,37 @@ type SidebarLoadingProps = {
 
 const SidebarLoading = ({ navigateToCategories }: SidebarLoadingProps) => (
   <S.Container>
-    <S.Section marginTop={0}>
-      <h3>Popular Anime Movies</h3>
+    <S.StickyWrapper>
+      <S.Section marginTop={0}>
+        <h3>Popular Anime Movies</h3>
 
-      {generateArray(2).map((position) => (
-        <AnimeCardLoading key={position} />
-      ))}
+        {generateArray(2).map((position) => (
+          <AnimeCardLoading key={position} />
+        ))}
 
-      <S.SeeMoreButton
-        type="button"
-        onClick={navigateToCategories('top/movie')}
-      >
-        See More
-      </S.SeeMoreButton>
-    </S.Section>
+        <S.SeeMoreButton
+          type="button"
+          onClick={navigateToCategories('top/movie')}
+        >
+          See More
+        </S.SeeMoreButton>
+      </S.Section>
 
-    <S.Section>
-      <h3>Favorite Animes</h3>
+      <S.Section>
+        <h3>Favorite Animes</h3>
 
-      {generateArray(4).map((position) => (
-        <AnimeCardLoading key={position} />
-      ))}
+        {generateArray(4).map((position) => (
+          <AnimeCardLoading key={position} />
+        ))}
 
-      <S.SeeMoreButton
-        type="button"
-        onClick={navigateToCategories('top/favorite')}
-      >
-        See More
-      </S.SeeMoreButton>
-    </S.Section>
+        <S.SeeMoreButton
+          type="button"
+          onClick={navigateToCategories('top/favorite')}
+        >
+          See More
+        </S.SeeMoreButton>
+      </S.Section>
+    </S.StickyWrapper>
   </S.Container>
 );
 

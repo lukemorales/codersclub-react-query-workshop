@@ -13,6 +13,7 @@ export const DefaultContainer = styled.div`
 
 export const ContentWrapper = styled.main`
   ${({ theme }) => css`
+    width: 100%;
     padding: 40px;
     grid-area: content;
     border-inline: 2px solid ${theme.colors.border};

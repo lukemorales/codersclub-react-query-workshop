@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.li`
   ${() => css`
+    max-width: 600px;
+
     > a {
       display: flex;
       color: currentColor;

@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.main`
+export const Container = styled.article`
+  width: 100%;
+  min-width: 100%;
+
   > h1 {
     text-transform: capitalize;
     margin-bottom: 40px;
