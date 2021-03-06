@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
-import { TopAiringAnime, TopAiringResponse } from '@common/types/api';
-import { api } from '@services';
 import { AnimeCard } from '@components';
 import { generateArray } from '@utils';
 import AnimeCardLoading from '@components/AnimeCard/Loading';
+import { usePaginatedCategoriesQuery } from '@hooks';
 
 import * as S from './styles';
 
@@ -19,30 +18,16 @@ type RouteParams = {
 const Categories = () => {
   const { category, sub_category } = useParams<RouteParams>();
 
-  const [data, setData] = useState([] as TopAiringAnime[]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+
+  const categoryQuery = usePaginatedCategoriesQuery(
+    category,
+    sub_category,
+    currentPage,
+  );
 
   const handlePageNavigation = (page: { selected: number }) =>
-    setCurrentPage(page.selected);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setIsLoading(true);
-
-        const response = await api.get<TopAiringResponse>(
-          `/${category}/anime/${currentPage}/${sub_category}`,
-        );
-
-        setData(response.data.top);
-      } catch (err) {
-        console.warn(err);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, [category, currentPage, sub_category]);
+    setCurrentPage(page.selected + 1);
 
   return (
     <S.Container>
@@ -51,11 +36,13 @@ const Categories = () => {
       </h1>
 
       <S.AnimeGrid>
-        {isLoading
+        {categoryQuery.isLoading
           ? generateArray(8).map((position) => (
               <AnimeCardLoading key={position} />
             ))
-          : data.map((anime) => <AnimeCard key={anime.mal_id} anime={anime} />)}
+          : categoryQuery.data?.map((anime) => (
+              <AnimeCard key={anime.mal_id} anime={anime} />
+            ))}
       </S.AnimeGrid>
 
       <S.Pagination>
