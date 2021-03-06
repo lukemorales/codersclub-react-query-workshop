@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { TopAiringAnime, SeasonAnime } from '@common/types/api';
 
@@ -9,21 +9,15 @@ type ListItemProps = {
   small?: boolean;
 };
 
-const ListItem = ({ data, small }: ListItemProps) => {
-  const history = useHistory();
+const ListItem = ({ data, small }: ListItemProps) => (
+  <S.Container small={small}>
+    <Link to={`/anime/${data.mal_id}`}>
+      <img src={data.image_url} alt={data.title} />
 
-  const navigateToAnime = () => history.push(`/anime/${data.mal_id}`);
-
-  return (
-    <S.Container small={small}>
-      <button type="button" onClick={navigateToAnime}>
-        <img src={data.image_url} alt={data.title} />
-
-        <span>{data.title}</span>
-      </button>
-    </S.Container>
-  );
-};
+      <span>{data.title}</span>
+    </Link>
+  </S.Container>
+);
 
 ListItem.defaultProps = {
   small: false,

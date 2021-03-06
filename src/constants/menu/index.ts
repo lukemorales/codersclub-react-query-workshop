@@ -37,6 +37,8 @@ type MenuEntries = Array<{
   items: Array<{
     title: ItemTitles;
     icon: IconType;
+    pathname?: string;
+    pathRegex?: RegExp;
   }>;
 }>;
 
@@ -47,6 +49,8 @@ export const MENU_ENTRIES: MenuEntries = [
       {
         title: 'Home',
         icon: HiHome,
+        pathname: '/',
+        pathRegex: /^\/$/,
       },
       {
         title: 'Community',
@@ -89,14 +93,17 @@ export const MENU_ENTRIES: MenuEntries = [
       {
         title: 'TV - Show',
         icon: HiTicket,
+        pathRegex: /favorite/,
       },
       {
         title: 'Movie',
         icon: HiVideoCamera,
+        pathRegex: /movie/,
       },
       {
         title: 'Anime',
         icon: HiCube,
+        pathRegex: /\/anime?/,
       },
     ],
   },

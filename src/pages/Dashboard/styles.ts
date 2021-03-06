@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  ${({ theme }) => css`
-    padding: 40px;
+  ${() => css`
     grid-area: content;
-    border-inline: 2px solid ${theme.colors.border};
   `}
 `;
 

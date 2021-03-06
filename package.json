@@ -14,11 +14,13 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-loading-skeleton": "^2.1.1",
+    "react-paginate": "^7.1.0",
     "react-query": "^3.9.8",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "react-spinners": "^0.10.6",
+    "react-youtube": "^7.13.1",
     "styled-components": "^5.2.1",
     "yup": "^0.32.9"
   },
@@ -44,7 +46,10 @@
   "eslintConfig": {
     "extends": [
       "@lukemorales"
-    ]
+    ],
+    "rules": {
+      "react/jsx-indent": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -65,6 +70,7 @@
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-paginate": "^6.2.1",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.7",
     "@types/yup": "^0.29.11",

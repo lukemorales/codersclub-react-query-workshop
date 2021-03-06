@@ -1,5 +1,5 @@
 export interface AnimeResponse {
-  readonly aired: Aired;
+  readonly aired?: Aired;
   readonly airing: boolean;
   readonly background: string;
   readonly broadcast: string;

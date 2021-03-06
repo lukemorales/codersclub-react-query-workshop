@@ -1,18 +1,23 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.section`
+export const Container = styled.div`
   ${() => css`
     grid-area: sidebar;
-    width: 100%;
-    max-width: 400px;
-    padding: 40px;
   `}
 `;
 
-export const PopularAnimes = styled.article`
-  ${() => css`
+export const StickyWrapper = styled.section`
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  position: sticky;
+  top: 10px;
+`;
+
+export const Section = styled.article<{ marginTop?: number }>`
+  ${({ marginTop = 24 }) => css`
     > h3 {
-      margin: 24px 0 16px;
+      margin: ${marginTop}px 0 16px;
     }
   `}
 `;

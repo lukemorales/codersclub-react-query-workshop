@@ -7,7 +7,7 @@ import * as S from './styles';
 const DefaultLayout = ({ children }: PropsWithRequiredChildren) => (
   <S.DefaultContainer>
     <Menu />
-    {children}
+    <S.ContentWrapper>{children}</S.ContentWrapper>
     <Sidebar />
   </S.DefaultContainer>
 );

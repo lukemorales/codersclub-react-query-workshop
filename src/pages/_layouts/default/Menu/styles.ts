@@ -1,12 +1,18 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.nav`
+export const Container = styled.div`
   ${() => css`
     grid-area: menu;
-    width: 100%;
-    max-width: 238px;
-    padding: 40px 0 40px 40px;
   `}
+`;
+
+export const StickyWrapper = styled.nav`
+  width: 100%;
+  max-width: 238px;
+  padding: 40px 0 40px 40px;
+  max-height: 98vh;
+  position: sticky;
+  top: 0;
 `;
 
 export const SectionWrapper = styled.div`

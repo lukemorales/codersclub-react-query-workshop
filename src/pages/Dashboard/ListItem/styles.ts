@@ -6,7 +6,7 @@ type ContainerProps = {
 
 export const Container = styled.li<ContainerProps>`
   ${({ theme, small }) => css`
-    > button {
+    > a {
       display: flex;
       flex-direction: column;
       background: none;

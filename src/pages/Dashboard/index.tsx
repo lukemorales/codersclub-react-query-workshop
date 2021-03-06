@@ -10,6 +10,7 @@ import {
 
 import * as S from './styles';
 import ListItem from './ListItem';
+import DashboardLoading from './DashboardLoading';
 
 const INITIAL_STATE = {
   season: [] as SeasonAnime[],
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
 
 const Dashboard = () => {
   const [data, setData] = useState(INITIAL_STATE);
+  const [isLoading, setIsLoading] = useState(true);
 
   const updateState = useCallback(
     (newState: Partial<typeof INITIAL_STATE>) =>
@@ -31,6 +33,7 @@ const Dashboard = () => {
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const [seasonResponse, topAiringResponse] = await Promise.all([
           api.get<SeasonResponse>('/season/2021/summer'),
           api.get<TopAiringResponse>('/top/anime/1/airing'),
@@ -44,9 +47,15 @@ const Dashboard = () => {
         });
       } catch (err) {
         console.warn(err);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, [updateState]);
+
+  if (isLoading) {
+    return <DashboardLoading />;
+  }
 
   return (
     <S.Container>

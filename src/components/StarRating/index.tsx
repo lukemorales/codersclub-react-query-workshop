@@ -18,6 +18,7 @@ const StarRating = ({ value }: StarRatingProps) => {
     <S.Container>
       {starsArray.map((position) => (
         <HiStar
+          key={position}
           size={28}
           color={theme.colors.stars[percentage >= position ? 'fill' : 'empty']}
         />
